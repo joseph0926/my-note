@@ -1,7 +1,7 @@
 'use client';
 
 import { useOutsideClick } from '@/hooks/use-outside-click';
-import { Loader2 } from 'lucide-react';
+import { Check, CheckCircle2, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -86,30 +86,12 @@ export const Memo = () => {
                     duration: 0.4,
                     bounce: 0,
                   }}
-                  className="absolute inset-0"
+                  className="bg-background absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-md px-4"
                 >
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M27.6 16C27.6 17.5234 27.3 19.0318 26.717 20.4392C26.1341 21.8465 25.2796 23.1253 24.2025 24.2025C23.1253 25.2796 21.8465 26.1341 20.4392 26.717C19.0318 27.3 17.5234 27.6 16 27.6C14.4767 27.6 12.9683 27.3 11.5609 26.717C10.1535 26.1341 8.87475 25.2796 7.79759 24.2025C6.72043 23.1253 5.86598 21.8465 5.28302 20.4392C4.70007 19.0318 4.40002 17.5234 4.40002 16C4.40002 12.9235 5.62216 9.97301 7.79759 7.79759C9.97301 5.62216 12.9235 4.40002 16 4.40002C19.0765 4.40002 22.027 5.62216 24.2025 7.79759C26.3779 9.97301 27.6 12.9235 27.6 16Z"
-                      fill="#2090FF"
-                      fillOpacity="0.16"
-                    />
-                    <path
-                      d="M12.1334 16.9667L15.0334 19.8667L19.8667 13.1M27.6 16C27.6 17.5234 27.3 19.0318 26.717 20.4392C26.1341 21.8465 25.2796 23.1253 24.2025 24.2025C23.1253 25.2796 21.8465 26.1341 20.4392 26.717C19.0318 27.3 17.5234 27.6 16 27.6C14.4767 27.6 12.9683 27.3 11.5609 26.717C10.1535 26.1341 8.87475 25.2796 7.79759 24.2025C6.72043 23.1253 5.86598 21.8465 5.28302 20.4392C4.70007 19.0318 4.40002 17.5234 4.40002 16C4.40002 12.9235 5.62216 9.97301 7.79759 7.79759C9.97301 5.62216 12.9235 4.40002 16 4.40002C19.0765 4.40002 22.027 5.62216 24.2025 7.79759C26.3779 9.97301 27.6 12.9235 27.6 16Z"
-                      stroke="#2090FF"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <h3>Feedback received!</h3>
-                  <p>Thanks for helping me improve Sonner.</p>
+                  <div className="flex size-10 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                    <Check className="size-5 text-green-600 dark:text-green-400" />
+                  </div>
+                  <p className="text-sm font-semibold">메모 추가 완료!</p>
                 </motion.div>
               ) : (
                 <motion.form
@@ -143,6 +125,7 @@ export const Memo = () => {
                       >
                         <AnimatePresence mode="popLayout" initial={false}>
                           <motion.span
+                            key={formState}
                             transition={{
                               type: 'spring',
                               duration: 0.3,
@@ -151,10 +134,10 @@ export const Memo = () => {
                             initial={{ opacity: 0, y: -25 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 25 }}
-                            className="text-center"
+                            className="mx-auto flex w-full items-center justify-center"
                           >
                             {formState === 'loading' ? (
-                              <Loader2 className="text-foreground bg-background size-4 animate-spin" />
+                              <Loader2 className="text-background size-4 animate-spin text-center" />
                             ) : (
                               <span className="text-sm font-semibold text-white">
                                 Add
