@@ -1,14 +1,11 @@
 {
-  "name": "my-note",
+  "name": "web-anim",
   "version": "0.1.0",
   "private": true,
-  "author": "김영훈",
-  "description": "간단한 개인 관리 앱",
+  "description": "웹 애니메이션 연습 레포",
   "keywords": [
     "김영훈",
-    "joseph0926",
-    "관리",
-    "TODO"
+    "joseph0926"
   ],
   "scripts": {
     "dev": "next dev --turbopack",

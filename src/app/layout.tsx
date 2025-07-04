@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'My App',
-  description: '간단한 개인 관리 앱',
+  title: 'Web Anim',
+  description: '웹 애니메이션 연습',
 };
 
 export default function RootLayout({
